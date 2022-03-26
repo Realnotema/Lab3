@@ -15,7 +15,7 @@ int get_int() {
         }
         int output = atoi(input);
         free(input);
-				return output;
+	return output;
 }
 
 char *enter() {
