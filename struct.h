@@ -1,3 +1,6 @@
+#ifndef STRUCT_H
+#define STRUCT_H
+
 typedef struct Table {
     KeySpace1 *ks1;
     KeySpace2 *ks2;
@@ -22,3 +25,5 @@ typedef struct KeySpace2 {
     int busy;
     Item *info;
 } KeySpace2;
+
+#endif
