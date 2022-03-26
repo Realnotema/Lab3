@@ -2,9 +2,9 @@
 #define STRUCT_H
 
 typedef struct Table {
-    KeySpace1 *ks1;
-    KeySpace2 *ks2;
-    int msize;
+	KeySpace1 *ks1;
+	KeySpace2 *ks2;
+	int msize;
     int csize;
 } Table;
 
