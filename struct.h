@@ -1,22 +1,22 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
-typedef struct Item {
+/*typedef struct Item {
         char *data;
-        int realise;
-} Item;
+} Item;*/
 
 typedef struct KeySpace1 {
         int key;
         int par;
         int busy;
-        Item *info;
+        char *info;
 } KeySpace1;
 
 typedef struct KeySpace2 {
         int key;
         int busy;
-        Item *info;
+        int realise;
+        char *info;
 } KeySpace2;
 
 typedef struct Table {
