@@ -1,10 +1,6 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
-/*typedef struct Item {
-        char *data;
-} Item;*/
-
 typedef struct KeySpace1 {
         int key;
         int par;
