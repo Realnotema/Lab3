@@ -153,3 +153,24 @@ int DellWithChildren (Table *table, int key) {
         table->ks2[pos2].busy = 0;
         DellWithChildren(table, FindParents(table, key));
 }
+
+int Reorganize (Table *table) {
+        int size = table->msize;
+        if (size == table->csize) return 1;
+        for (int i = 0; i < table->msize - 1; i++) {
+                if (table->ks1[i].busy == 0 && table->ks1[i + 1].busy == 1) {
+                          table->ks1[i] = table->ks1[i + 1];
+                          table->ks1[i + 1].busy = 0;
+                          size--;
+                }
+        }
+        size = table->msize;
+        for (int i = 0; i < table->msize - 1; i++) {
+                if (table->ks2[i].busy == 0 && table->ks2[i + 1].busy == 1) {
+                          table->ks2[i] = table->ks2[i + 1];
+                          table->ks2[i + 1].busy = 0;
+                          size--;
+                }
+        }
+        return 0;
+}
