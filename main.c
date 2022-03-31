@@ -42,7 +42,8 @@ int AddMenu (Table *table) {
 }
 
 int EditMenu (int choose, Table *table) {
-        char *mess[] = {"Enter key of parent:"};
+        int flag = 0;   
+        char *mess[] = {"Enter key of parent:", "Reorganized succesfully!", "Enter realise:"};
         switch (choose) {
                 case 1:
                         puts(mess[0]);
@@ -50,16 +51,21 @@ int EditMenu (int choose, Table *table) {
                         DellWithChildren(table, key);
                         break;
                 case 2:
-                        printf("reorganize");
+                        flag = Reorganize (table);
+                        if (flag == 0)
+                                puts(mess[1]);
                         break;
                 case 3:
-                        printf("search");
+                        puts(mess[2]);
+                        int rel = GetInt();
+                        SearchVersion(table, rel);
                         break;
                 case 4:
                         return 1;
         }
         return 0;
 }
+
 
 int Menu(int choose, Table *table) {
         char *mess = "Enter key from first key space to delete:";
