@@ -174,3 +174,20 @@ int Reorganize (Table *table) {
         }
         return 0;
 }
+
+Table *SearchVersion (Table *table, int rel) {
+        int j = 0;
+        Table *temp = InitTable(table->msize);
+        for (int i = 0; i < table->msize; i++) {
+                if (table->ks2[i].busy == 1 && table->ks2[i].realise == rel) {
+                        temp->ks2[j] = table->ks2[i];
+                        temp->ks1[j] = table->ks1[FindPos2(table, j)];
+                        j++;
+                }
+        }
+        PrintTable(temp);
+        free(temp->ks1);
+        free(temp->ks2);
+        free(temp);
+        return temp;
+}
